@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<body>
+    <!-- 
+        属性：
+            Border=”1”   边框:1默认为2px
+            Width=”500”  宽度
+            Height=”300” 高
+            cellspacing=”2”    单元格与单元格的距离 : 0
+            cellpadding=”2”    内容距边框的距离
+            align=”left  |  right  |  center”  
+                    如果直接给表格用align=”center”  表格居中
+                    如果给tr或者td使用   ，tr或者td内容居中。
+            bgcolor=”red”    背景颜色。
+            bordercolor="green" 边框颜色
+            colspan=”2”  合并同一行上的单元格
+            rowspan=”2”  合并同一列上的单元格
+            内容垂直对齐方式: Valign=”top   |  middle   |  bottom”
+     -->
+    <table border="1" cellspacing="0"width="1200" height="800" cellpadding="10" align="center" bordercolor="green" bgcolor="pink">
+        <!-- 表头 -->
+        <caption>汇总表格</caption>
+        <tr>
+            <!-- 表格标题 <th></th>用法和td一样,标题的文字自动加粗水平居中对齐 -->
+            <th colspan="2"></th>
+            <!-- <th></th> -->
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>爱好</th>
+            <th>工作</th>
+            <th>学习</th>
+            <th>身高</th>
+            <th>体重</th>
+            <th>相貌</th>
+            <th>衣品</th>
+            <th>人品</th>
+            <th>人缘</th>
+            <th>长相</th>
+            <th>上进</th>
+        </tr>
+        <tr bgcolor="skyblue" align="center">
+            <td rowspan="7" colspan="2">人员信息</td>
+            <!-- <td rowspan="7"></td> -->
+            <td>小花</td>
+            <td>女</td>
+            <td>18</td>
+            <td>钢琴</td>
+            <td>学生</td>
+            <td>好</td>
+            <td>168</td>
+            <td>90</td>
+            <td>可以</td>
+            <td>不错</td>
+            <td>一般</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>一般</td>
+        </tr>
+        <tr align="left">
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小孟</td>
+            <td>男</td>
+            <td>34</td>
+            <td>睡觉</td>
+            <td>无业</td>
+            <td>不好</td>
+            <td>189</td>
+            <td>120</td>
+            <td>丑</td>
+            <td>一般</td>
+            <td>人渣</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>没有</td>
+        </tr>
+        <tr bgcolor="skyblue" align="right">
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小明</td>
+            <td>男</td>
+            <td>12</td>
+            <td>足球</td>
+            <td>学生</td>
+            <td>不好</td>
+            <td>168</td>
+            <td>120</td>
+            <td>可以</td>
+            <td>一般</td>
+            <td>good</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>一般</td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小林</td>
+            <td>男</td>
+            <td>22</td>
+            <td>小岩</td>
+            <td>学生</td>
+            <td>好</td>
+            <td>180</td>
+            <td>160</td>
+            <td>可以</td>
+            <td>good</td>
+            <td>good</td>
+            <td>可以</td>
+            <td>不错</td>
+            <td>good</td>
+        </tr>
+        <tr bgcolor="skyblue" Valign="top">
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小王</td>
+            <td>男</td>
+            <td>45</td>
+            <td>代码</td>
+            <td>码农</td>
+            <td>好</td>
+            <td>178</td>
+            <td>150</td>
+            <td>可以</td>
+            <td>不错</td>
+            <td>good</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>一般</td>
+        </tr>
+        <tr valign="middle">
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小岩</td>
+            <td>女</td>
+            <td>22</td>
+            <td>小林</td>
+            <td>学生</td>
+            <td>好</td>
+            <td>163</td>
+            <td>100</td>
+            <td>可以</td>
+            <td>一般</td>
+            <td>good</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>good</td>
+        </tr>
+        <tr bgcolor="skyblue" valign="bottom">
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>小明</td>
+            <td>男</td>
+            <td>12</td>
+            <td>足球</td>
+            <td>学生</td>
+            <td>不好</td>
+            <td>168</td>
+            <td>120</td>
+            <td>可以</td>
+            <td>一般</td>
+            <td>good</td>
+            <td>可以</td>
+            <td>普通</td>
+            <td>一般</td>
+        </tr>
+    </table>
+
+    <!-- 换行标签 -->
+    <br/>
+
+    <!-- 标准表格 -->
+    <table border="1" cellspacing="0"  width="200" height="1000">
+        <thead>
+            <tr>
+                <td>aa</td>
+                <td>aa</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>bb</td>
+                <td>bb</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>cc</td>
+                <td>cc</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

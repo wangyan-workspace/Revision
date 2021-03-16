@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 设置icon图标 -->
+    <link rel="icon" href="./images/k14.ico">
+    <title>form</title>
+</head>
+<body>
+    <!-- 表单域 -->
+    <!-- 
+        属性：
+            action:处理信息     method=”get | post”   
+            Get通过地址栏提供（传输）信息，安全性差。
+            Post 通过特定的链接来处理信息，安全性高
+     -->
+     <!-- 
+         <fieldset></fieldset>    对表单信息分组
+         <legend></legend>      表单信息分组名称
+      -->
+    <form action="#">
+        <fieldset>
+            <legend>基本信息</legend>
+            <!-- 表单控件 -->
+            <!-- 文本输入框 -->
+            <!-- 
+                maxlength="6"    限制输入字符长度
+                readonly=”readonly”  将输入框设置为只读状态（不能编辑）
+                disabled="disabled"  输入框未激活状态
+                name="username"   输入框的名称
+                value="大前端"     将输入框的内容传给处理文件
+            -->
+            用户名：<input type="text" maxlength="6" name="username" value="请您输入信息...">
+            <br/>
+
+            <!-- 密码输入框 -->
+            <!-- 文本输入框的所有属性对密码输入框都有效 -->
+            密码：<input type="password" name="pwd">
+            <br/>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend>详细信息</legend>
+            <!-- 单选框 -->
+            <!-- 
+                只有将name的值设置相同的时候，才能实现单选效果。
+                checked=”checked” 设置默认选择项。
+            -->
+            <input type="radio" name="sex" checked="checked">男
+            <input type="radio" name="sex">女
+            <br/>
+
+            <!-- 多选框 -->
+            <!-- Checked=”checked” 设置默认选中项 -->
+            <input type="checkbox" name="play">抽烟
+            <input type="checkbox" name="play">喝酒
+            <input type="checkbox" name="play" checked>烫头
+            <br/>
+
+            <!-- 下拉列表 -->
+            <!-- 
+                Multiple=”multiple”  将下拉列表设置为多选项
+                Selected=”selected”  设置默认选中项目
+            -->
+            <!-- 
+                <optgroup></optgroup>   对下拉列表进行分组。
+                Label=””  分组名称。
+            -->
+            <select>
+                <optgroup label="黑龙江省">
+                    <option selected="selected">鹤岗</option>
+                    <option>大庆</option>
+                    <option>哈尔滨</option>
+                    <option>富锦</option>
+                </optgroup>
+                <optgroup label="鹤岗市">
+                    <option>萝北县</option>
+                    <option selected="selected">绥滨县</option>
+                </optgroup>
+                <optgroup label="绥滨县">
+                    <option>忠仁镇</option>
+                    <option selected="selected">高力村</option>
+                    <option>大成村</option>
+                    <option>绥东</option></option>
+                </optgroup>
+            </select>
+            <br/>
+            <select multiple="multiple">
+                <option>鹤岗</option>
+                <option selected="selected">大庆</option>
+                <option>哈尔滨</option>
+                <option>富锦</option>
+            </select>
+            <br/>
+
+            <!-- 多行文本框 -->
+            <!-- 
+                Cols  控制输入字符的长度。
+                Rows  控制输入的行数
+            -->
+            <textarea cols="30" rows="10">请输入文字！</textarea>
+            <br/>
+
+            <!-- 文件上传控件 -->
+            <input type="file">
+            <br/>
+
+            <!-- 文件提交按钮 -->
+            <!-- 可以实现信息提交功能 -->
+            <input type="submit">
+            <br/>
+
+            <!-- 普通按钮 -->
+            <!-- 不能提交信息，配合JS使用。 -->
+            <input type="button" value="普通按钮">
+            <br/>
+
+            <!-- 图片按钮 -->
+            <!-- 图片按钮可实现信息提交功能 -->
+            <!-- 
+                提交按钮与图片按钮的区别：唯一的区别就是type=image的input提交方式会把按钮点击的位置坐标x,y提交过去
+            -->
+            <input type="image" src="./images/feng.jpg">
+            <br/>
+
+            <!-- 重置按钮 -->
+            <!-- 将信息重置到默认状态 -->
+            <input type="reset">
+        </fieldset>
+        
+    </form>
+</body>
+</html>

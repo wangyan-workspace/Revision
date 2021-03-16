@@ -1,0 +1,164 @@
+<!-- 用来保证你的文档能够正常的被读取 -->
+<!DOCTYPE html>
+<!-- 包含了我们整个页面内容（根元素） -->
+<html lang="en">
+<!-- 包含所有头部元素的容器，不会被用户看到，主要是针对搜索引擎 主要包括：关键字，CSS样式表，字符编码，页面的描述性内容 -->
+
+<head>
+        
+    <!-- metadata（元数据）：用来描述关于数据的东西 SEO -->
+        
+    <!-- 指定使用Unicode中的哪一个字符集 -->
+        
+    <meta charset="UTF-8">
+        
+    <!-- name：指定了meta元素的类型，说明该元素包含了什么信息。content：指定了实际的元数据的内容 -->
+        
+    <meta name="author" content="Sun">
+    <!-- 关键字 -->
+    <meta name="keywords" content="前端教学，Java教学">
+    <!-- 网页描述 -->
+    <meta name="decription" content="前端教学最牛的地方，哈哈哈">
+        
+    <!-- 响应式设计的 --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 网页重定向 -->  
+    <!-- 5秒之后，跳转到百度页面 -->
+    <!-- <meta http-equiv="refresh" content="5;http://www.baidu.com"> -->
+        
+    <!-- 可修改标题名称 -->
+    <!--     <title>Document</title> -->
+        <title>html基础</title>
+
+        
+    <!-- 定义文档与外部资源的联系 -->
+        
+    <!-- 链接外部样式表 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 设置icon图标 -->
+    <link rel="icon" href="./images/k14.ico">
+    
+    <!-- 定义了页面上所有链接的默认地址 -->
+    <!-- 当链接内容有共同的链接位置可用base标签单独写一次，之后的链接不需再重复写 -->
+    <!-- <base href="https://image.baidu.com"> -->
+
+    <!-- 超链接优化写法  -->
+    <!-- <base target="_blank"> 让所有的超链接都在新窗口打开 -->
+
+    <style>
+        /* 内部可以写CSS样式 */
+    </style>
+    <!-- 定义客户脚本  最好放到body的底部 -->
+    <script>
+
+    </script>
+    <script src=""></script>
+    <script>
+        // var h1 = document.getElementsByTagName('h1')[0];
+        // h1.style.color = 'red';
+    </script>
+</head>
+<body>
+    <!-- 段落标签 特点：上下自动生成空白行 -->
+    <p id="top">作者：巴拉巴拉</p>  <!-- 先定义一个锚点  top -->
+    <!-- 换行标签 -->
+    从前有座山⛰<br>山里有座庙厸
+    <!-- 水平线标签 -->
+    <hr/>
+    <!-- 标题标签 h1~h6-->
+    <h1>咪咪</h1>
+    <h2>咪咪</h2>
+    <h3>咪咪</h3>
+    <h4>咪咪</h4>
+    <h5>咪咪</h5>
+    <h6>咪咪</h6>
+    <!-- 文本加粗标签 <strong></strong>   <b></b>  工作里尽量使用strong-->
+    <strong>啦啦啦</strong>
+    <b>啊啊啊</b>
+    <!-- 文本倾斜标签 <em></em>  <i></i> 工作里尽量使用em -->
+    <em>水幕墙</em>  <i>水幕墙</i>
+    <!-- 删除线标签 <del></del>  <s></s>   工作里尽量使用del -->
+    <del>666.66</del>  <s>888.88</s>
+    <!-- 下划线标签 <ins></ins>   <u></u>    工作里尽量ins -->
+    <ins>下划线</ins>   <u>下划线</u>
+    <!-- 图片标签 -->
+    <!-- 
+        Src    图片的来源   必写属性
+        Alt    替换文本    图片不显示的时候显示的文字
+        Title   提示文本    鼠标放到图片上显示的文字
+        Width  图片宽度
+        Height  图片高度
+     -->
+     <!-- 图片没有定义宽高的时候，图片按照百分之百比例显示，如果只更改图片的宽度或者高度，图片等比例缩放。 -->
+    <img src="./images/feng.jpg" alt="刘德华" title="天王" width="300" height="500">
+    <!-- 相对路径 -->
+    <!-- 
+        相对于文件自身出发，就是相对路径
+        1.文件和图片（html文档）在同一个目录(文件夹) ，直接写文件名
+        2.图片（html文档）在文件在下一级目录里。文件夹名称+/+图片（html）名称
+        3.图片（html）在文件的上一级目录里，..+/+图片（html）名称
+        4.图片在文件的上一级的其他目录里，../文件夹名称/图片名称
+        总结：找到下一级目录（文件夹）的图片（文件）用 /                  跳出当前目录使用../
+     -->
+
+    <!-- 绝对路径 ：电脑上的绝对路径（不推荐使用） -->
+
+    <!-- 超链接 -->
+    <!-- 
+        href   去往的路径（跳转的页面） 必写属性
+        title    提示文本   鼠标放到链接上显示的文字
+        target=”_self”    默认值    在自身页面打开（关闭自身页面，打开链接页面）  
+        target=”_blank”   打开新页面 （自身页面不关闭，打开一个新的链接页面）
+
+     -->
+    <a href="./images/feng.jpg" title="图片" target="_self">刘德华图片</a>
+    <a href="4.小说排行榜.html" title="小说信息汇总" target="_blank">小说排行榜</a>
+    
+    <!-- 锚链接 -->
+    <a href="#top">回到顶部</a> <!-- 超链接到锚点  top -->
+    <a href="#">空链</a>  <!-- 不知道去哪个页面的时候，用空连 -->
+      
+    <!-- 特殊字符 -->
+    <!-- &nbsp表示空格，人为的加上空格防止计算机自动删去部分空格 -->
+    <!-- 在编译器里不允许写大于，小于号，因为编译器会默认为是开始标签和结束标签的一部分
+        &lt;表示小于  &gt;表示大于 -->
+    <img src="./images/特殊字符.png" alt="">
+    <p>我有一个小猫咪。。。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;他超可爱的&lt;/strong&gt;</p>
+    <a href="/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%BF%C9%B0%AE%D0%A1%C3%A8%DF%E4&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111">可爱的小猫咪</a>
+    <a href="/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1594347005116_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&hs=2&sid=&word=%E5%8F%AF%E7%88%B1%E7%8B%97%E7%8B%97">可爱的狗狗</a>
+     
+    <!-- 无序列表 -->
+    <!-- 
+        type=”square”      小方块
+        type=”disc”       实心小圆圈
+        type=”circle”      空心小圆圈
+
+     -->
+    <ul type="square">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+
+    <!-- 有序列表 -->
+    <!-- 
+        type=”1,a,A,i,I” type的值可以为 1,a,A,i,I
+        start=”3”  决定了开始的位置。
+     -->
+    <ol type="I" start="3">
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+    </ol>
+
+    <!-- 自定义列表 -->
+    <dl>
+        <dt>帮助中心</dt> <!-- 小标题 -->
+        <dd>购物指南</dd> <!-- 解释标题 -->
+        <dd>订单操作</dd>
+        <dd>账户管理</dd>
+    </dl>
+</body>
+
+</html>
