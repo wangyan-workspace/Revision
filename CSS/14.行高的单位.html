@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行高的单位</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            line-height: 2em;
+        }
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            line-height: 150%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        浏览器默认文字大小：16px
+        行高：是基线与基线之间的距离
+        行高=文字高度+上下边距
+        一行文字行高和父元素高度一致的时候，垂直居中显示。
+
+        行高的单位
+
+        | 行高单位    | 文字大小   | 值          |
+        | ---------- | -------- | ----------- |
+        | 20px       | 20px     | 20px        |
+        | 2em        | 20px     | 40px        |
+        | 150%  200% | 20px     | 30px   40px |
+        | 2          | 20px     | 40px        |
+
+        总结:单位(px)除了像素以外，行高都是与文字大小乘积。
+
+        | 行高单位  | 父元素文字大小    | 子元素文字大小   | 行高 |
+        | -------- | -------------- | -------------- | :--: |
+        | 40px     | 20px           | 30px           | 40px |
+        | 2em      | 20px           | 30px           | 40px |
+        | 150%     | 20px           | 30px           | 30px |
+        | 2        | 20px           | 30px           | 60px |
+
+        总结:不带单位时，行高是和子元素文字大小相乘，em和%的行高是和父元素文字大小相乘。行高以像素为单位，就是定义的行高值。
+
+        ◆推荐行高使用像素为单位。
+
+        **EM特点**
+        1. em的值并不是固定的；
+        2. em会继承父级元素的字体大小。
+        em是以字为单位，1em是占一个字符的宽度，大小随着字符的字号而变化。
+        px是像素，是对所有浏览器都显示为一样大小的。
+     -->
+     <div class="box1">div1
+         <div class="div2">div2</div>
+     </div>
+</body>
+</html>

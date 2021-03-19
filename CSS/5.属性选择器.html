@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        /* 属性选择器 */
+        /* 
+            [属性名]选择含有指定属性的元素。
+            [属性名=属性值]选择含有指定属性和属性值的元素。
+            [属性名^=属性值]选择属性值以指定值开头的元素。
+            [属性名￥=属性值]选择属性值以指定值结尾的元素。
+            [属性名*=属性值]选择属性值中含有某值的元素。
+        */
+        p[title]{
+            color: orange;
+        }
+        p[title=abc]{
+            background-color: green;
+        }
+        p[title^=abc]{
+            font-size: 24px;
+        }
+        p[title*=e]{
+           border: seagreen 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <p title="abc">我是一个粉刷匠</p>
+    <p title="abcdef">粉刷本领强</p>
+    <p title="hello">我要把那新房子</p>
+    <p>刷得很漂亮</p>
+</body>
+</html>

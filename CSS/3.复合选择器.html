@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器</title>
+    <style>
+        /* 概念：两个或者两个以上的基础选择器通过不同的方式连接在一起。 */
+        /* 
+            交集选择器  
+            特点：即要满足使用了某个标签，还要满足使用了类（id）选择器
+            用法： 标签名.自定义类名 {属性：值；属性：值；...}  || 标签名#自定义id名 {属性：值；属性：值；...}
+         */
+         div#both {
+             color: royalblue;
+         }
+         div.and {
+             background-color: seagreen;
+         }
+         /* 并集选择器 用法：选择器,选择器,选择器..{属性：值；属性：值；...} */
+         div,span,p {
+             border: 1px solid;
+             margin-bottom: 5px;
+         }
+    </style>
+</head>
+<body>
+    <div id="both">div_交集选择器</div>
+    <div class="and">div_交集选择器</div>
+    <span>我是一个span</span>
+    <p>我是一个p标签</p>
+</body>
+</html>

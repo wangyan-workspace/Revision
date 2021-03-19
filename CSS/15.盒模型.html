@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型</title>
+    <style>
+        .box {
+            width:300px;
+            height:190px;
+            background:#999;
+            border-top-style:solid;
+            border-top-color:red;
+            border-top-width:5px;
+            border-bottom-style:dashed;
+            border-bottom-color:green;
+            border-bottom-width:10px;
+        }
+        table{
+            width:300px;
+            height:500px;
+            border:1px solid red;
+            border-collapse:collapse;
+        }
+        td{
+            border:1px solid red;
+        }
+        #parent {
+            width: 500px;
+            height: 500px;
+            background-color: salmon;
+            /* border: 1px solid; */
+            overflow: hidden;
+        }
+        #child {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        盒模型(Box Model)
+            CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：外边距（margin）、边框（border）、内边距（padding）、实际内容（content）四个属性。
+        W3C盒子模型(标准盒模型)和IE盒子模型(怪异盒模型)
+        边框：
+            border-top-style: solid   实线  dotted  点线  dashed  虚线
+            border-top-color   边框颜色
+            border-top-width   边框粗细
+            border-collapse:collapse 边框合并   
+            边框属性连写，没有顺序要求，线型为必写项
+        内边距：
+           padding   left   |   right    |  top  |  bottom 
+           ◆padding连写
+            padding: 20px;   上右下左内边距都是20px
+            padding: 20px 30px;   上下20px   左右30px
+            padding: 20px  30px  40px;   上内边距为20px  左右内边距为30px   下内边距为40
+            padding:  20px  30px   40px  50px;   上20px 右30px  下40px  左  50px
+
+            ◆**内边距撑大盒子的问题**
+                内边距影响盒子的宽度
+                边框影响盒子的宽度
+            **盒子的宽度=定义的宽度+边框宽度+左右内边距**
+            **◆继承的盒子一般不会被撑大**
+                包含（嵌套）的盒子，如果子盒子没有定义宽度，给子盒子设置左右内边距，一般不会撑大盒子。
+        外边距：
+            margin-left   | right  |  top  |  bottom
+            ◆外边距连写
+            Margin: 20px;    上下左右外边距20PX
+            Margin: 20px 30px;   上下20px  左右30px
+            Margin: 20px  30px  40px;     上20px  左右30px   下  40px
+            Margin: 20px  30px   40px  50px; 上20px   右30px   下40px  左50px
+            ◆**垂直方向外边距合并**
+                两个盒子垂直一个设置上外边距，一个设置下外边距，取的设置较大的值。
+            ◆**嵌套的盒子外边距塌陷**
+                解决方法:  1  给父盒子设置边框
+                ​          2  给父盒子   overflow:hidden;			 隐藏溢出
+            ###  行内元素可以定义左右的外边距,上下会被忽略掉
+     -->
+     <h1>1.盒模型</h1>
+     <img src="./images/盒模型.gif" alt="盒模型图片">
+     <h1>2.W3C盒子模型(标准盒模型)</h1>
+     <img src="./images/标准盒模型.jpg" alt="标准盒模型图片">
+     <p class="box">
+        根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的；
+        即在标准模式下的盒模型，盒子实际内容（content）的width/height=我们设置的width/height;
+        盒子总宽度/高度=width/height+padding+border+margin。
+     </p>
+     <h1>3.IE盒子模型(怪异盒模型)</h1>
+     <img src="./images/怪异盒模型.jpeg" alt="怪异盒模型图片">
+     <p>
+        在该模式下，浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和；
+        即在怪异模式下的盒模型，盒子的（content）宽度+内边距padding+边框border宽度=我们设置的width(height也是如此)，
+        盒子总宽度/高度=width/height + margin = 内容区宽度/高度 + padding + border + margin。
+     </p>
+     <h1>4.两种模式下如何解决样式的兼容性问题</h1>
+     <div>
+        建议不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。
+     </div>
+     <h1>5.CSS3指定盒子模型种类</h1>
+     <div>
+         <p>
+            1. box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。
+         </p>
+         <p>
+            2. box-sizing: content-box;//宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。
+         </p>
+         <p>
+            3. box-sizing: border-box;// 为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+         </p>
+         <p>
+            4. box-sizing: inherit;// 规定应从父元素继承 box-sizing 属性的值。
+         </p>
+         <p>
+            5. 即box-sizing属性可以指定盒子模型种类，content-box指定盒子模型为W3C（标准盒模型），border-box为IE盒子模型（怪异盒模型）。
+         </p>
+    </div>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+            <td>e</td>
+            <td>f</td>
+        </tr>
+        <tr>
+            <td>g</td>
+            <td>o</td>
+            <td>o</td>
+            <td>g</td>
+            <td>l</td>
+            <td>e</td>
+        </tr>
+    </table>
+    <br>
+    <div id="parent">
+        <div id="child">
+            child
+        </div>
+    </div>
+</body>
+</html>

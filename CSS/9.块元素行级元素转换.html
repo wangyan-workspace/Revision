@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级元素行级元素转换</title>
+    <style>
+        /* 块级元素转换成行级元素 display: inline; 不能直接设置宽高，不生效，不独占一行 */
+        div,p {
+            display: inline;
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+        /* 行级元素转换成块级元素 display: block; 可以设置宽高，独占一行 */
+        span {
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        /* 块级元素和行级元素转换成行内块元素 */
+        h1,a{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>标题</h1>
+    <div>我是一个div</div>
+    <p>我是一个p标签</p>
+    <span>我是一个span</span>
+    <input type="text">
+    <a href="http://baidu.com">baidu</a>
+</body>
+</html>

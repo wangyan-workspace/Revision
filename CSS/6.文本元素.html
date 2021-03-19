@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本元素</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: yellowgreen;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 微软雅黑;
+            font-style: italic;
+            line-height: 40px;
+            text-decoration: underline;
+        }
+
+        /* 
+            文本属性连写：
+            font: font-style font-weight  font-size/line-height  font-family;
+         */
+        span {
+            font: normal 100 56px microsoft yahei;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        属性：
+        font-size:16px;  文字大小
+        font-weight: 700	; 值从100-900，文字粗细，不推荐使用(font-weight:bold;)
+        font-family:微软雅黑(Lobster-Regular);  文本的字体
+        font-style: normal / italic;      normal 默认值  italic  斜体
+        line-height: 行高
+     -->
+    <div>我是一个div</div>
+    <span>我是一个span</span>
+    <!-- 
+        文本修饰:  可以去掉a标签的下划线
+            text-decoration: none  |   underline   |     line-through
+     -->
+</body>
+
+</html>

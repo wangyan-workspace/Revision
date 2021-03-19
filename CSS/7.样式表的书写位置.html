@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 外链式写法 -->
+    <link rel="stylesheet" href="style.css">
+    <title>样式表的书写位置</title>
+    <style>
+        /* 内嵌式写法 */
+        .main {
+            width: 600px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        ◆三种写法特点:
+            ★内嵌式写法，样式只作用于当前文件，没有真正实现结构表现分离。
+            ★外链式写法，作用范围是当前站点，谁调用谁生效，范围广，真正实现结构表现分离。推荐使用
+            ★行内样式表，作用范围仅限于当前标签，范围小，结构表现混在一起。  （不推荐使用）
+     -->
+     <h1>文章标题</h1>
+     <div class="main">主体内容</div>
+     <!-- 行内式写法 -->
+     <span class="footer" style="font-size: 60px; color: yellow;">底部</span>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动布局</title>
+    <style>
+        .main {
+            width: 600px;
+            border: 1px red solid;
+            /* background: #7845ed; */
+            /* overflow: hidden; */
+        }
+        .content {
+            width: 300px;
+            height: 300px;
+            background: pink;
+            float: left;
+        }
+        .sidebar {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            float: left;
+        }
+        .footer {
+            width: 800px;
+            height: 100px;
+            background: greenyellow;
+        }
+        .clearfix::after {
+            content: "";
+            display: block;
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        /* 兼容ie浏览器 */
+        .clearfix {
+            zoom:1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        ## 文档流（标准流）
+            元素自上而下，自左而右，块元素独占一行，行内元素在一行上显示，碰到父集元素的边框换行。
+        ## 浮动布局
+            float:  left   |   right
+            特点：
+                ★元素浮动之后不占据原来的位置（脱标）
+                ★浮动的盒子在一行上显示
+                ★行内元素浮动之后转换为行内块元素。（不推荐使用，转行内元素最好使用display: inline-block;）
+            ### 浮动的作用
+                ◆文本绕图
+                ◆制作导航
+                ◆网页布局
+        ## 清除浮动
+        当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素发生位置错误。
+        ◆清除浮动不是不用浮动，清除浮动产生的不利影响。
+        ◆清除浮动的方法
+        clear: left  |  right  | both
+        工作里用的最多的是clear:both;
+            ★额外标签法   在最后一个浮动元素后添加标签,标签内设置style="clear: both;"。
+            ★给父集元素使用overflow:hidden;    如果有内容出了盒子，不能使用这个方法。
+            ★伪元素清除浮动  推荐使用
+     -->
+     <!-- 浮动元素的父盒子调用伪元素清除浮动 -->
+     <div class="main clearfix">
+		<div class="content"></div>
+        <!-- 额外标签法 -->
+		<!-- <div style="clear: both;"> -->
+		<div class="sidebar"></div>
+    </div>
+    <div class="footer"></div>
+</div>
+</body>
+</html>
