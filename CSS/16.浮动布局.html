@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浮动布局</title>
     <style>
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .cb {
+            clear: both;
+        }
+
         .main {
             width: 600px;
             border: 1px red solid;
             /* background: #7845ed; */
             /* overflow: hidden; */
         }
+
         .content {
             width: 300px;
             height: 300px;
             background: pink;
             float: left;
         }
+
         .sidebar {
             width: 100px;
             height: 100px;
             background: skyblue;
             float: left;
         }
+
         .footer {
             width: 800px;
             height: 100px;
             background: greenyellow;
         }
+
         .clearfix::after {
             content: "";
             display: block;
@@ -37,12 +54,14 @@
             visibility: hidden;
             clear: both;
         }
+
         /* 兼容ie浏览器 */
         .clearfix {
-            zoom:1;
+            zoom: 1;
         }
     </style>
 </head>
+
 <body>
     <!-- 
         ## 文档流（标准流）
@@ -67,14 +86,20 @@
             ★给父集元素使用overflow:hidden;    如果有内容出了盒子，不能使用这个方法。
             ★伪元素清除浮动  推荐使用
      -->
-     <!-- 浮动元素的父盒子调用伪元素清除浮动 -->
-     <div class="main clearfix">
-		<div class="content"></div>
-        <!-- 额外标签法 -->
-		<!-- <div style="clear: both;"> -->
-		<div class="sidebar"></div>
+    <!-- 清除前面兄弟元素浮动 -->
+    <p class="fl">我是左浮动元素</p>
+　　 <p class="fr">我是右浮动元素</p>
+　　 <p class="cb">我不受浮动元素的影响</p>
+    <!-- 浮动元素的父盒子调用伪元素清除浮动 -->
+    <div class="main clearfix">
+        <div class="content"></div>
+        <div class="sidebar"></div>
+         <!-- 额外标签法 -->
+        <!-- <div style="clear: both;"> -->
+
     </div>
     <div class="footer"></div>
-</div>
+    </div>
 </body>
+
 </html>
