@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流程控制</title>
+</head>
+<body>
+    <!-- 
+        一、顺序结构（程序正常执行流程从上往下，从左往右）（不用研究）
+           赋值运算时为从右往左执行，且左侧为属性或变量，不取值！！！
+        二、选择结构  a)  If语句  b)  Switch语句
+        if语句和switch语句。If常用，switch为特殊情况使用，判断条件出现的情况特别多的时候用switch，其他时候if语句比较方便。
+        一、If语句用法有三种
+            1．if(条件1){程序1}
+            2．if(条件1){程序1}else{程序2}
+            3．if(条件1){程序1}else if(条件2){程序2}...else{程序n}
+        三、循环结构   a)  for循环  b)  while循环  c)   do...while循环
+     -->
+    <script>
+        switch (值1) {
+            case value1: 
+                // 程序1；
+                break; // break 关键字会导致代码执行流跳出 switch 语句
+            case value2: 
+                // 程序2；
+                break;
+            default: 
+                // 程序3；
+        }
+        /*
+            break可以省略，如果省略，代码会继续执行下一个case
+            switch 语句在比较值时使用的是全等操作符，因此不会发生类型转换
+            （例如，字符串 "10" 不等于数值 10）。
+        */
+    </script>
+</body>
+</html>

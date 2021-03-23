@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <!-- 
+        有return函数就有值；没有return函数就没值；
+        函数程序运行后的结果外部需要使用的时候，我们不能直接给与，需要通过return返回。
+        总结：函数内部，return后面的值就是返回值；
+        作用：函数执行后剩下结果就是返回值。
+        函数执行完毕，会不会留下点儿什么，取决于有没有返回值
+        ​       var  temp   =    函数名()   =  （功能）+ 该函数的返回值;
+        注意
+        1. 如果函数没有显示的使用 return语句 ，那么函数有默认的返回值：undefined
+        2. 如果函数使用 return语句，那么在return后面的值，就成了函数的返回值
+        3. 如果函数使用 return语句，但是return后面没有任何值，那么函数的返回值  也是：undefined
+        4. 函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退  出，也就是说return后面的所有其他代码都不会再执行。
+     -->
+    <script>
+        //  函数名、函数体和函数加载问题（重点记忆）
+        // 1、函数名是什么 函数名 == 整个函数。
+        function fn() {
+            alert('🌶🌶🌶 ');
+        }
+        console.log(fn);
+        // console.log(fn) == console.log(function fn(){alert('🌶🌶🌶 ')}); 
+        // 2、函数加载问题
+        // JS加载的时候，只加载函数名，不加载函数体。所以如果想使用内部的成员变量，需要调用函数。
+
+        /*
+            函数定义：
+            1.函数声明（自定义声明） 2.函数表达式  3.通过创建对象声明函数
+        */
+        // 1.函数声明（自定义声明）    
+        function add(a, b) {
+            return a + b;
+        }
+        console.log(add(5, 6));  //11
+        // 2.函数表达式
+        var myFun = function (a, b) {
+            return a * b;
+        }
+        console.log(myFun(5, 6));  //30
+        // 3.通过创建对象声明函数
+        var fn = new Function("console.log(789)");
+        fn();
+
+        /*
+            变量和作用域（隐式全局变量和变量声明提升）
+            一.全局变量
+            哪里都可以访问到的变量。（进入script立即定义的变量和没有var的变量）
+            二、局部变量
+            函数内部的变量，只有函数内部可以访问到。（函数内部用var定义的变量和形参）
+        */
+        // 隐式全局变量就是隐藏的全局变量不好被发现
+        function fn1() {
+            var a = b = c = 1;// b和c就是隐式全局变量
+        }
+        function  fn2() {
+            var  a  =  b  =  c  =  1;   // b和c就是隐式全局变量（等号）
+            var  a = 1;  b = 2;  c = 3;     // b和c就是隐式全局变量（分号）
+            var  a = 1 ,  b = 2 ,  c = 3;    // b和c就不是隐式全局变量（逗号）
+
+        }
+        // 变量声明提升（出现原因：预解析）
+        // 函数中，定义变量在使用变量之后。只提升变量名，不提升变量值，容易出现undefined。计算后形成NaN。
+        function fn3(){
+            // var aaa;
+            console.log(aaa);
+            var aaa = 1;
+        }
+        fn3();   //undefined
+
+        // 变量提升
+        var num = 10;
+        fun();
+        function fun(){
+            console.log(num);  //undefined
+            var num = 20;
+        }
+
+        var a = 18;
+        f1();
+        function f1(){
+            var b=9;
+            console.log(a);  //undefined 
+            console.log(b);  //9
+            var a = '123';
+        }
+
+        f2();
+        console.log(cc);  //9
+        console.log(bb);  //9
+        // console.log(aa);  //aa is not defined
+        function f2(){
+            var aa = bb = cc = 9;
+            console.log(aa);  //9
+            console.log(bb);  //9
+            console.log(cc);  //9
+        }
+        /*
+            1.函数不调用不执行
+            2.函数名就等于（整个函数）
+            3.加载函数的时候，只加载函数名，不加载函数体
+            4.参数相当于局部变量
+            5.就近原则使用变量
+            6.两个平级的函数中的变量不会相互影响（可以使用同样的形参名）
+        */
+
+        /*
+            匿名函数
+            定义：匿名函数就是没有名字的函数
+            匿名函数的调用有三种方法：
+            一、直接调用或自调用。(function(){alert(1)})()
+            二、事件绑定。
+            三、定时器。
+        */
+       /*
+            递归：就是函数自己调用自己。
+            必须有跳出条件。
+       */
+    </script>
+</body>
+
+</html>

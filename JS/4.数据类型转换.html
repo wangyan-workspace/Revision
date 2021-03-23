@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转换</title>
+</head>
+<body>
+    <!-- 
+        数据类型转换
+        1.转换成字符串类型 2.转换成数字类型 3.转换成布尔类型
+     -->
+     <!-- 
+         任何简单类型转换成String（三种方法）
+         1、变量+“”   或者     变量+“abc”
+         2、String(变量)
+         3、变量.toString()    注意：undefined和null不可以
+          Null和undefined无toString方法。
+      -->
+      <!-- 
+          任何简单类型转换成Number
+          此转换容易产生NaN，一旦被转换的变量中含有非数字字符，都容易出现NaN
+          1.变量 -*/ 一个数字（有非数字字符会出现NaN）,JS底层做了一个强制类型转换，把字符串转换成了Number进行运算。
+          2.Number(变量)（有非数字字符会出现NaN）
+          3.parseInt()和parseFloat()（译为取整和取浮点数）
+                空字符串parseInt()和parseFloat()返回NaN，Number("")返回0
+                parseInt(变量)：如果变量中首个字符为字母则结果为NaN。否则取出现首个非数字前的整数。
+                parseFloat(变量)：如果变量中首个字符为字母则结果为NaN。否则取出现首个非数字前的浮点数。（没有小数取整）
+       -->
+       <!-- 
+           Boolean类型中：true数值为1；false为0； null的数值类型为0； undefined无数值类型或者为NaN;
+           任何简单类型转换成Boolean
+           任何数据类型都可以转换成boolean类型，所以和以往两个转换不同；
+           1.Boolean(变量)        
+           2.！！变量
+            第一个逻辑非操作会基于无论什么操作数返回一个与之相反的布尔值
+            第二个逻辑非操作则对该布尔值求反
+            于是就得到了这个值真正对应的布尔值
+        -->
+    <script>
+        var age = 18;
+        console.log(age);  //数字类型 18
+        console.log(age + '');  // 字符串类型 18
+        console.log(age + 'abc'); // 字符串类型 18abc(相当于字符串的拼接)
+        console.log(String(age)); // 字符串类型 18
+        console.log(age.toString()); // 字符串类型 18
+
+        console.log("60" + 0);  // 字符串类型 600(相当于字符串的拼接)
+        console.log("60" - 0);  // 数字类型 60
+        console.log("60" * 0);  //数字类型 0
+        console.log("60" / 0);  // Infinity
+        var price = '80';
+        var num1 = Number(price);
+        var num2 = Number("18.78");
+        console.log(num1,num2);  //数字类型 80 18.78
+
+        console.log(parseInt('123bdhsjfg123'));  //数字类型 123
+        console.log(parseFloat('123.473bdhsjfg123'));  //数字类型 123.473
+        console.log(parseInt('asdsdf123.473bdhsjfg123'));  //NaN
+        console.log(parseFloat('dfsfg123.473bdhsjfg123'));  //NaN
+        console.log(parseInt(''));  //NaN
+        console.log(parseFloat(''));  //NaN
+
+        var bool = Boolean("sds");
+        console.log(bool);  //true
+        console.log(!bool);  //false
+        console.log(!!bool);  //true
+    </script>
+</body>
+</html>

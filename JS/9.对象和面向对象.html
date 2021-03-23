@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象和面向对象</title>
+</head>
+<body>
+    <script>
+        // 创建空白对象
+        var obj = new Object();
+        obj.name = 'lisi';
+        obj.age = 18;
+        obj.sayHello = function () {
+            console.log('saying...')
+        }
+        console.log(obj);
+
+        // 构造函数（就是为了创建对象实例）
+        // 一、可以创建对象实例的函数。二、区别与普通函数，首字母大写。
+        function Student (name,age) {  //创建一个构造函数
+            this.name = name;   //构造函数中的对象指的是this
+            this.age = age;
+            this.eat = function () {
+                console.log(this.name + "is eating");
+            }
+        }
+        var stu1 = new Student("zhangsan",56);
+        stu1.eat();  //zhangsanis eating
+        var stu2 = new Student("wangwu",89);
+        stu2.eat(); //wangwuis eating
+
+        /*
+            创建自定义对象
+            This
+            一、this只出现在函数中。
+            二、谁调用函数，this就指的是谁。
+            三、new People();   People中的this代指被创建的对象实例。
+            new
+            1.开辟内存空间，存储新创建的对象（ new Object() ）
+            2.把this设置为当前对象
+            3.执行内部代码，设置对象属性和方法
+            4.返回新创建的对象
+        */
+    </script>
+</body>
+</html>

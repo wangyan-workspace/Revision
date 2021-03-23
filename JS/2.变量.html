@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+</head>
+
+<body>
+    <!-- 
+        遵从规则：
+        1.变量命名必须以字母或是下标符号”_”或者”$”为开头。
+        2.变量名长度不能超过255个字符。
+        3.变量名中不允许使用空格，首个字不能为数字。
+        4.不用使用脚本语言中保留的关键字及保留符号作为变量名。
+        5.变量名区分大小写。(javascript是区分大小写的语言)
+        6.汉语可以作为变量名。但是不建议使用！！！（low）
+     -->
+    <script>
+        // 定义赋值 定义后再赋值
+        var name = "lisi";
+        var age;
+        age = 18;
+        console.log(name, age);
+        // 交换两个变量（数值型）而且不能用中间值。(求和)
+        var a = 10;
+        var b = 20;
+        a = a + b;  //a=30
+        b = a - b;  //b=10
+        a = a - b;  //a=20
+        console.log(a,b);
+
+    </script>
+</body>
+
+</html>

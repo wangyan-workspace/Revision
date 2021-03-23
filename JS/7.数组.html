@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<body>
+    <script>
+        // 定义数组的两种方式
+        var arr1 = [1,2,3];
+        var arr2 = new Array(7,8,9); //参数位置一个数值时为数组长度，多个数值时为数组中的元素。
+        var arr3 = [3];
+        var arr4 = new Array(3);
+        console.log(arr1);  //(3) [1, 2, 3]
+        console.log(arr2);  //(3) [7, 8, 9]
+        console.log(arr3);  //[3]
+        console.log(arr4);  //[empty * 3]
+        console.log(arr1.length);  //3
+        console.log(arr2[1]);       //8
+        console.log(arr3[2]);       //undefined
+    </script>
+</body>
+</html>
