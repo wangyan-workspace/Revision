@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东狗</title>
+    <style>
+        a {
+            display: block;
+            width: 160px;
+            height: 170px;
+            background: url("./images/jd1.png");
+        }
+    </style>
+</head>
+<body>
+    <a href="#"></a>
+    <img src="./images/jd1.png" alt="京东狗图片">
+    <script>
+        window.onload = function () {
+            // 1.获取事件源
+            var a = document.getElementsByTagName("a")[0];
+            // 2.绑定事件
+            a.onmouseover = function () {
+                a.style.background = "url(./images/jd2.png)";
+            }
+            a.onmouseout = function () {
+                a.style.background = "url(./images/jd1.png)";
+            }
+        }
+
+        var oImg = document.getElementsByTagName("img")[0];
+        oImg.onmouseover = function () {
+            oImg.src = "./images/jd2.png";
+            oImg.width = "200";
+            oImg.style.height = "200px"
+        }
+    </script>
+</body>
+</html>

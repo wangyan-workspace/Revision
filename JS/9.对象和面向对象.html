@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>对象和面向对象</title>
 </head>
+
 <body>
     <script>
         // 创建空白对象
@@ -19,16 +21,16 @@
 
         // 构造函数（就是为了创建对象实例）
         // 一、可以创建对象实例的函数。二、区别与普通函数，首字母大写。
-        function Student (name,age) {  //创建一个构造函数
+        function Student(name, age) {  //创建一个构造函数
             this.name = name;   //构造函数中的对象指的是this
             this.age = age;
             this.eat = function () {
                 console.log(this.name + "is eating");
             }
         }
-        var stu1 = new Student("zhangsan",56);
+        var stu1 = new Student("zhangsan", 56);
         stu1.eat();  //zhangsanis eating
-        var stu2 = new Student("wangwu",89);
+        var stu2 = new Student("wangwu", 89);
         stu2.eat(); //wangwuis eating
 
         /*
@@ -43,6 +45,34 @@
             3.执行内部代码，设置对象属性和方法
             4.返回新创建的对象
         */
+        //对象字面量（键值对）和JSON    
+        var obj = {
+            name: 'lisi',
+            age: '19',
+            gender: 'nv',
+            say: function () {
+                console.log('saying...');
+            }
+        }
+        console.log(obj.name);
+        obj.say();
+        // 对象字面量定义方法和json很像，只有一点不同，json的key要求必须加“”;
+        var json = {
+            "name": "zhangsan",
+            "age": 23,
+            "gender": "nan"
+        }
+
+        console.log(json.name);  //zhangsan
+        console.log(json["age"]);  //23
+        // 对象本身没有length,所以不能用for循环遍历
+        console.log(json.length);  //undefined
+        // for...in...遍历JSON
+        for(var key in json) {
+            console.log(key);   //name  age  gender
+            console.log(json[key]);  //zhangsan   23  nan
+        }
     </script>
 </body>
+
 </html>

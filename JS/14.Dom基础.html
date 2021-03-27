@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom基础</title>
+</head>
+<body>
+    <!-- 
+        HTML的组成部分为节点（ Node ）
+        在TML当中一切都是节点……
+        由结构图中我们可以看到，整个文档就是一个文档节点。
+        每一个HMTL标签都是一个元素节点（标签节点）。
+        标签中的文字则是文字节点。（文本节点）
+        标签的属性是属性节点。（属性节点）
+     -->
+     <img src="./images/3.png" alt="">
+
+     <script>
+        //  Dom节点的获得 
+        // 1.通过 id 找到 HTML 元素 
+        document.getElementById("demo");
+        // 2.通过标签名找到 HTML 元素
+        document.getElementsByTagName("div");
+        // 3.通过类名找到 HTML 元素
+        document.getElementsByClassName("box");
+
+        // 通过类名查找 HTML 元素在 IE 5,6,7,8 中无效
+        /*
+            标签=document.getElementById("demo"); 通过ID获得标签
+            他的返回值是一个标签，可以直接使用。获得属性值，设置属性。
+
+            标签数组= document.getElementsByTagName("div"); 通过标签名获得标签数组
+            标签数组= document.getElementsByClassName("a");通过类名获得标签数组
+            他们两个的返回值是标签数组，习惯性是遍历之后再使用。
+
+            特殊情况：数组中的值只有1个。
+            document.getElementsByTagName("div")[0];取数组中第一个元素
+​            document.getElementsByClassName("a")[0];取数组中第一个元素
+        */ 
+     </script>
+</body>
+</html>

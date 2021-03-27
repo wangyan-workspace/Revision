@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组高级API</title>
+</head>
+
+<body>
+    <script>
+        // 判断是否是一个数组
+        var arr = [1, 2, 6, 9, 4, 8, 5, 7]
+        // 1.instanceof:  是一个关键字。     判断A是否是B类型。
+        console.log(arr instanceof Array);  //true
+        // 2.Array.isArray() HTML5中新增    判断是不是数组
+        console.log(Array.isArray(arr));   //true
+        console.log(arr);
+
+        // toString()   把数组转换成字符串，每一项用,分割
+        console.log(arr.toString());
+        // valueOf()    返回数组对象本身
+        console.log(arr.valueOf());
+        // Join  根据每个字符把数组元素连起来变成字符串
+        var arr2 = ['h', 'e', 'l', 'l', 'o'];
+        console.log(arr2.join(""));
+
+        // 数组增删和换位置
+        // push()  在数组最后面插入项，返回数组的长度
+        arr.push(0);
+        console.log(arr);
+        //pop()   取出数组中的最后一项，返回最后一项 
+        arr.pop();
+        console.log(arr);
+        // unshift()   在数组最前面插入项，返回数组的长度
+        console.log(arr.unshift(3));
+        // shift()  取出数组中的第一个元素，返回第一项
+        console.log(arr);
+        console.log(arr.shift());
+        //reverse()     翻转数组（原数组将被反转，返回值也是被反转后的数组）
+        console.log(arr.reverse());
+        // sort();    给数组排序，返回排序后的数组。如何排序看参数。
+        /*
+            无参：按照数组元素的首字符对应的Unicode编码值从小到大排列数组元素。
+            带参：必须为函数（回调函数--callback）。函数中带有两个参数，代表数组中的前后元素。
+            如果计算后（a-b），返回值为负数，a排b前面。等于0不动。返回值为正数，a排b后面。
+        */ 
+        console.log(arr.sort(function(a,b){
+            return a-b;
+        }));
+
+        // concat()  把参数拼接到当前数组
+        arr3 = arr.concat(arr2);
+        console.log(arr3);
+
+        // slice() 从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始
+        arr4 = arr3.slice(3,6);  //从索引为3开始截取，到索引为6结束，不包括索引6的值
+        console.log(arr4);
+
+        // splice() 会影响原来的数组，是用原数组调用该方法，删除或替换当前数组的某些项目，参数start,deleteCount,options(要替换的项目)  splice(起始索引，个数，替换内容)
+        arr5 = arr3.splice(0,3);
+        console.log(arr3); //影响到了原数组 
+        console.log(arr5);  //删除后的元素
+
+        // indexOf()、lastIndexOf()   fan返回数组索引值，如果没找到返回-1
+        console.log(arr3.indexOf(9));  //4
+
+        // 清空数组
+        var arr6 = [1,9,8,6,7,5,4,3];
+        arr6.splice(0,arr6.length);
+        console.log(arr6);
+        // array.length = 0; length属性可以赋值，其它语言中length是只读
+        arr6.length = 5;
+        console.log(arr6);
+    </script>
+</body>
+
+</html>

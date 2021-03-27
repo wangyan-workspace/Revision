@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取字节点</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            margin: 10px;
+            ;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        /*
+            firstChild：调用者是父节点。IE678中指第一个子元素节点（标签）。
+            在火狐谷歌IE9+以后都指的是第一个节点（包括空文档和换行节点）。
+            firstElementChild:在火狐谷歌IE9都指的第一个元素节点。
+            第一个子节点=父节点.firstElementChild || 父节点.firstChild
+
+            lastChild:调用者是父节点。IE678中指最后一个子元素节点（标签）。
+            在火狐谷歌IE9+以后都指的是最后一个节点（包括空文档和换行节点）。
+            lastElementChild：在火狐谷歌IE9都指的最后一个元素节点。
+            最后一个子节点=父节点.lastElementChild|| 父节点.lastChild
+
+        */
+        window.onload = function () {
+            // 1.获取事件源
+            var oUl = document.getElementsByTagName("ul")[0];
+            // 获取第一个孩子
+            var fc = oUl.firstElementChild || oUl.firstChild;
+            // 获取最后一个孩子
+            var lc = oUl.lastElementChild || oUl.lastChild;
+            console.log(fc);  //<li>1</li>
+            console.log(lc);  //<li>5</li>
+
+            /*
+                childNodes：它是标准属性，它返回指定元素的子元素集合，
+                包括HTML节点，所有属性，文本节点   （他还是W3C的亲儿子 ）
+                火狐 谷歌等高本版会把换行也看做是子节点
+
+                nodeType==1时才是元素节点(标签)
+                 nodeType  ==  1  表示的是元素节点   记住   元素就是标签
+                 nodeType  ==  2  表示是属性节点     了解
+                 nodeType  ==  3  是文本节点         了解
+            */
+            // 获取所有的孩子节点，包括换行回车
+            var cn = oUl.childNodes;
+            console.log(cn);  //NodeList(11) [text, li, text, li, text, li, text, li, text, li, text]
+
+            // 通过结点的类型过滤出标签节点（元素节点）
+            var newArr = [];
+            for (var i = 0; i < cn.length; i++) {
+                if (cn[i].nodeType === 1) {
+                    newArr.push(cn[i]);
+                }
+            }
+            console.log(newArr);  //(5) [li, li, li, li, li]
+            /*
+                children：非标准属性，它返回指定元素的子元素集合。
+                但它只返回HTML节点，甚至不返回文本节点，虽然不是标准的DOM属性，
+                但它和innerHTML方法一样，得到了几乎所有浏览器的支持。
+                children在IE6/7/8中包含注释节点 
+                在IE678中，注释节点不要写在里面。
+                子节点数组 = 父节点.children;   用的最多。
+            */
+            console.log(oUl.children);  //HTMLCollection(5) [li, li, li, li, li]
+
+            /**
+             * 获取某个元素所有兄弟节点
+             * ele:要获取的某个元素
+             */
+            function siblings(ele) {
+                var arr = [];
+                // 通过当前元素获取它的父节点，然后再通过父节点获取所有子节点（包含传入的元素本身）
+                var sib = ele.parentNode.children;
+                console.log(sib);
+                // 遍历所有的子元素，把不是当前传入的元素放入到数组中，遍历之后数组中存放的就是除自己之外的所有兄弟节点
+                for (var i = 0; i < sib.length; i++) {
+                    if (sib[i] != ele) {
+                        arr.push(sib[i]);
+                    }
+                }
+                return arr;
+            }
+
+            var li = document.getElementsByTagName("li")[2];
+            var liArr = siblings(li);
+            console.log(liArr);
+        }
+    </script>
+</body>
+
+</html>

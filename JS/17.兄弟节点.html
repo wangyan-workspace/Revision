@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兄弟节点</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            margin: 10px;;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        window.onload = function () {
+            // 1.获取事件源
+            var aLis = document.getElementsByTagName("li");
+            // 2.绑定事件
+            for (var i = 0; i < aLis.length; i++) {
+                // 3.事件处理函数
+                aLis[i].onclick = function () {
+                    // console.log(this);  // <li>$</li>
+                    // console.log(this.nextSibling);  //#text  因为有回车换行
+                    // 获取下一个兄弟节点
+                    var ns = this.nextElementSibling || this.nextSibling;
+                    // console.log(ns);
+                    ns.style.background = "pink";
+
+                    // 获取前一个兄弟节点
+                    var ps = this.previousElementSibling || this,previousSibling
+                    // console.log(ps); 
+                    ps.style.background = "green";
+
+
+
+                    if(this.nextElementSibling) {  //如果能拿到的话，就证明现在用的是高版本浏览器
+                        ns = this.nextElementSibling;
+                    } else {  //IE低版本浏览器
+                        ns = this.nextSibling;
+                    }
+
+                    /*
+                        nextSibling：调用者是节点。IE678中指下一个元素节点（标签）。在火狐谷歌IE9+以后都指的是下一个节点（包括空文档和换行节点）。
+                        nextElementSibling：在火狐谷歌IE9都指的是下一个元素节点。
+                        总结：在IE678中用nextSibling，在火狐谷歌IE9+以后用nextElementSibling
+
+                        previousSibling：调用者是节点。IE678中指前一个元素节点（标签）。在火狐谷歌IE9+以后都指的是前一个节点（包括空文档和换行节点）。
+                        previousElementSibling：在火狐谷歌IE9都指的是前一个元素节点。
+                        总结：在IE678中用previousSibling，在火狐谷歌IE9+以后用previousElementSibling。
+                    */ 
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

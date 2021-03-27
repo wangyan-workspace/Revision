@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+
+        li {
+            background-color: green;
+            margin: 5px;
+            list-style: none;
+        }
+
+        .wenzi {
+            width: 100%;
+            height: 50px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="id_div"></div>
+    <ul>
+        <li>我是一个li</li>
+        <li>我是一个li</li>
+        <li>我是一个li</li>
+        <li>我是一个li</li>
+        <li>我是一个li</li>
+    </ul>
+    <!--绑定事件的方法： 行内绑定 -->
+    <a href="https://www.baidu.com" onclick="fn1()">点我点我呀</a>
+    <div class="wenzi">啊啊啊</div>
+    <script>
+        // 1.获取事件源(三种方式)
+        // var oDiv = document.getElementsByTagName("div")[0];
+        // var oDiv = document.getElementsByClassName("box")[0];
+        var oDiv = document.getElementById("id_div");
+        console.log(oDiv);
+        // 2.绑定事件
+        oDiv.onclick = function () {
+            // 3.事件驱动程序
+            alert(123);
+        }
+        // 绑定事件的方法：1.匿名绑定 2.用函数名绑定 3.行内绑定 
+        /**
+         * 需求：给5个li一起绑定鼠标单击事件，在触发鼠标单击的时候弹窗显示123
+         */
+        // 1.获取事件源
+        var aLis = document.getElementsByTagName("li");
+        console.log(aLis);
+        // 2.绑定事件
+        for (var i = 0; i < aLis.length; i++) {
+            // 绑定匿名函数
+            aLis[i].onclick = function () {
+                // 3.事件处理函数
+                alert("我被点击了...");
+            }
+        }
+
+        var oWenZi = document.getElementsByClassName("wenzi")[0];
+        // 绑定有名字的函数
+        oWenZi.onclick = fn;
+        function fn() {
+            alert("通过调用有名字的函数，执行事件处理函数");
+        }
+        function fn1() {
+            alert("确定要跳转进入下一页面吗")
+        }
+
+
+    </script>
+</body>
+
+</html>

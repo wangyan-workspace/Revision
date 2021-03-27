@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件练习</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .aaa {
+            border: 5px solid green;
+        }
+        .box {
+            width: 300px;
+			height: 100px;
+			background-color: yellow;
+			color: blue;
+			font-size: 25px;
+			font-weight: 700;
+			font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aaa">我是一个div</div>
+    <img src="./images/1.png" alt="事件有哪些">
+    <script>
+        // 需求：点击盒子,改变盒子的宽高颜色等样式，并弹出对话框alert(1)
+        // 1.获取事件源
+        var oDiv = document.getElementsByTagName("div")[0];
+        console.log(oDiv);
+        // 2.绑定事件
+        oDiv.onclick = function () {
+            //3. 事件处理函数
+            // oDiv.style.width = "300px";
+            // oDiv.style.height = "100px";
+            // oDiv.style.backgroundColor = "yellow";
+            // oDiv.style.color = "blue";
+            // oDiv.style.fontSize = "20px";
+            // oDiv.style.fontWeight = "700";
+            // alert(1);
+            oDiv.className = "aaa box"
+        }
+    </script>
+</body>
+
+</html>
