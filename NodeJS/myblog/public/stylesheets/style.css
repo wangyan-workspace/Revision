@@ -1,0 +1,30 @@
+/* 全局样式 */
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    /* 去掉下划线 */
+    text-decoration: none;
+}
+ul,ol {
+    /* 去掉列表前的小圆点 */
+    list-style: none;
+}
+/* 通用样式 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+header {
+    height: 50px;
+    background: #6d9cec;
+    padding: 0 20px;
+    display: flex;
+    /* 两边对齐 */
+    justify-content: space-between;
+    /* 文本垂直居中对齐 */
+    align-items: center;
+    opacity: 0.8;
+}

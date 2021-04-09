@@ -1,0 +1,15 @@
+.login-form {
+    width: 650px;
+    background:cornsilk;
+    margin: 40px auto;
+    padding: 20px 0;
+    text-align: center;
+    opacity: 0.8;
+}
+.login-form p {
+    padding: 20px 0;
+}
+#btn-login {
+    width: 70px;
+    border-radius: 5px;
+}
