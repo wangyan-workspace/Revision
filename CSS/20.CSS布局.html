@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 浮动 -->
+    <!-- <style>
+        .float .left {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+        .float .center {
+            background: yellow;
+            height: 300px;
+        }
+
+        .float .right {
+            width: 300px;
+            height: 300px;
+            float: right;
+            background: red;
+        }
+    </style> -->
+
+    <!-- absolute实现 -->
+    <!-- <style>
+        .absolute article > div {
+            position: absolute;
+        }
+        .absolute .left {
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+        .absolute .center {
+            height: 300px;
+            left: 300px;
+            right: 300px;
+            background: yellow;
+        }
+        .absolute .right {  
+            width: 300px;
+            height: 300px;
+            right: 0;
+            background: red;
+        }
+    </style> -->
+
+    <!-- flex实现 -->
+    <!-- <style>
+        .flex .left-center-right {
+            display: flex;
+            height: 300px;
+        }
+        .flex .left {
+            width: 300px;
+            /* height: 300px; */
+            background: green;
+        }
+        .flex .center {
+            flex:1;
+            background: yellow;
+        }
+        .flex .right {
+            width: 300px;
+            /* height: 300px; */
+            background: red;
+        }
+    </style> -->
+
+    <!-- table实现 -->
+    <!-- <style>
+        .table .left-center-right {
+            width: 100%;
+            height: 100px;
+            display: table;
+        }
+        .table .left-center-right div {
+            display: table-cell;
+        }
+        .table .left {
+            width: 300px;
+            background: green;
+        }
+        .table .center {
+            background: yellow;
+        }
+        .table .right {
+            width: 300px;
+            background: red;
+        }
+    </style> -->
+
+    <!-- grid实现 -->
+    <!-- <style>
+        .grid .left-center-right {
+            display: grid;
+            width: 100%;
+            grid-template-rows : 100px;
+            grid-template-columns : 300px auto 300px;
+        }
+        .grid .left {
+            background: green;
+        }
+        .grid .center {
+            background: yellow;
+        }
+        .grid .right {
+            background: red;
+        }
+    </style> -->
+
+    <!-- 三栏布局，左右固定，中自适应 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        article {
+            width: 100%;
+        }
+        .top {
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .bottom {
+            height: 200px;
+            background: blue;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .center {
+            background: yellow;
+            position: absolute;
+            height: auto;
+            top: 200px;
+            bottom: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 三栏布局，高度已知，左右固定，中自适应 -->
+    <!-- 
+        float实现
+        优点：兼容性好
+        缺点：脱离文档流，DOM节点顺序错误
+    -->
+    <!-- <section class="float">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center"></div>
+        </article>
+    </section> -->
+
+    <!-- 
+        absolute实现
+        优点：快捷
+        缺点：脱离文档流
+    -->
+    <!-- <section class="absolute">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </article>
+    </section> -->
+
+    <!-- 
+        flex实现
+        优点：新布局方式，解决以上两种布局方式的缺陷
+        缺点：兼容性较差
+    -->
+    <!-- <section class="flex">
+        <arctile class="left-center-right">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </arctile>
+    </section> -->
+
+    <!-- 
+        table实现
+        优点：兼容性好、快捷
+        缺点：单元格限制，当某个单元格高度调整时，其他单元格也会被调整
+    -->
+    <!-- <section class="table">
+        <arctile class="left-center-right">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </arctile>
+    </section> -->
+
+    <!-- 
+    grid实现
+    优点：将网格布局标准化，将复杂问题简单化
+    缺点：兼容性差
+    -->
+    <!-- <section class="grid">
+        <arctile class="left-center-right">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </arctile>
+    </section> -->
+
+    <!-- 三栏布局，上下固定，中自适应 -->
+    <section>
+        <article class="top"></article>
+        <article class="center"></article>
+        <article class="bottom"></article>
+    </section>
+
+</body>
+
+</html>

@@ -1,7 +1,5 @@
 // 引入koa
 const Koa = require('koa');
-// 引入koa/router路由
-const Router = require("@koa/router");
 // 引入ejs模板引擎
 const views = require("koa-views");
 // nodejs自带的模块，方便使用path.join方法将两部分路径拼接在一起
@@ -13,8 +11,6 @@ const bodyParser = require('koa-bodyparser');
 
 
 const app = new Koa();
-const router = new Router();
-
 // 使用ctx.body解析中间件
 app.use(bodyParser());
 
@@ -29,16 +25,6 @@ app.use(
 app.use(staticPath(
     path.join(__dirname,'/public')
 ))
-
-router.get('/',async (ctx) => {
-   await ctx.render("index")
-})
-router.get('/login',async (ctx) => {
-    await ctx.render("login");
-})
-router.get('/regist',async (ctx) => {
-    await ctx.render("regist");
-})
 
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods())
